@@ -110,6 +110,46 @@ depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named cmake_testapp
+
+# Build rule for target.
+cmake_testapp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cmake_testapp
+.PHONY : cmake_testapp
+
+# fast build rule for target.
+cmake_testapp/fast:
+	$(MAKE) -f CMakeFiles/cmake_testapp.dir/build.make CMakeFiles/cmake_testapp.dir/build
+.PHONY : cmake_testapp/fast
+
+main.o: main.cc.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cc.o:
+	$(MAKE) -f CMakeFiles/cmake_testapp.dir/build.make CMakeFiles/cmake_testapp.dir/main.cc.o
+.PHONY : main.cc.o
+
+main.i: main.cc.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cc.i:
+	$(MAKE) -f CMakeFiles/cmake_testapp.dir/build.make CMakeFiles/cmake_testapp.dir/main.cc.i
+.PHONY : main.cc.i
+
+main.s: main.cc.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cc.s:
+	$(MAKE) -f CMakeFiles/cmake_testapp.dir/build.make CMakeFiles/cmake_testapp.dir/main.cc.s
+.PHONY : main.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -117,7 +157,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... cmake_testapp"
 	@echo "... edit_cache"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

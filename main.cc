@@ -145,10 +145,13 @@ namespace AA{
     static void b() {cout << "Also playing" << endl;}
 };
 }
-int main(int argc, char **argv) {
+void dobedoo() {
     AA::A a;
     a.a();
     AA::A::b();
+}
+int main(int argc, char **argv) {
+    
 
     return 0;
 }

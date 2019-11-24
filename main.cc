@@ -1,5 +1,8 @@
 #include <iostream>
-#include<vector>
+#include <vector>
+#include <ctime>
+#include <array>
+#include <vector>
 // #include<string>//getline
 using namespace::std;
 
@@ -66,7 +69,7 @@ struct Point<Metanoia*> {
         cout << "Metanoia" << endl;
     }
 };
-int main(int argc, char **argv) {
+void specialize() {
     Point <int>p1{3,4};
     Point <int>p2{10,20};
     Point <int>p3 = p1 + p2;
@@ -81,5 +84,71 @@ int main(int argc, char **argv) {
     cout << sizeof(p) << endl;
 
     Point<char*> pp;
+}
+void pointerAndRefs() {
+    int x = 999;
+    int *px = &x;
+    int * const * const cpcpx = & px;//Const pointer to const pointer
+    int * * const pcpx = & px;//Const pointer to const pointer
+    *pcpx = nullptr;
+    int * const * cppx = & px;//Const pointer to const pointer
+    //pcpx = nullptr; cannot assign to cons pointer
+    int *const & rcpx = px;//Reference to a const pointer to x
+    //int * & const crpx = px;//Const Reference to a pointer to x
+    cout << rcpx << endl;//Adr of x
+    //cout << *crpx << endl;//x
+    //rpx = px+1; Illegal, rpx is a const
+}
+void aBitRandom() {
+    srand(time(nullptr));
+    cout << rand() << endl << (RAND_MAX + 1u) << endl;
+    // RAND_MAX is the maximum value returned by rand(), giving RAND_MAX + 1 possible values
+    constexpr int noOfRandoms = 6;
+    int oneInSixRandom = rand() / (RAND_MAX + 1u) / noOfRandoms;//[0 6] exclusive 6
+}
+int getBall(int totalBalls) {
+    return rand() / ((RAND_MAX + 1u) / totalBalls);
+}
+void lottery(vector<int> &balls, int ballCnt, int totalBalls) {
+    srand(time(nullptr));
+    int rnd;
+    bool isDuplicate;
+    for(int i = 0; i < ballCnt; i++) {
+        do {
+            rnd = getBall(totalBalls);
+            // cout << rnd << "; ";
+            isDuplicate = false;
+            for(int ball : balls) {
+                if(ball == rnd) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+        } while(isDuplicate);
+        balls.push_back(rnd);
+        // cout << ballCnt << ", ";
+    }
+}
+void playLottery() {
+    constexpr int noOfBalls = 6;
+    constexpr int TotalBalls = 39;
+    vector<int>a1;
+    lottery(a1, noOfBalls, TotalBalls);
+    for(int ball : a1) {
+        cout << ball << ", ";
+    }
+    cout << endl;
+}
+namespace AA{
+    struct A{
+    void a() {cout << "Playing" << endl;}
+    static void b() {cout << "Also playing" << endl;}
+};
+}
+int main(int argc, char **argv) {
+    AA::A a;
+    a.a();
+    AA::A::b();
+
     return 0;
 }

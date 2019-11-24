@@ -150,8 +150,39 @@ void dobedoo() {
     a.a();
     AA::A::b();
 }
-int main(int argc, char **argv) {
-    
 
+struct BB {
+    void bb() {}
+    void  bc() const{}
+    friend void holabaloa(BB bb);
+    private:
+    int x = 0;
+};
+void holabaloa(BB bb) {
+    bb.x = 0;
+}
+void constant() {
+    BB const b;
+    //b.bb(); //can only call a const function of a const object!
+    BB c;
+    c.bb();
+    c.bc();
+    b.bc();
+}
+class AAA;
+class BBB{
+    friend class AAA;
+    int x;
+    public:
+    BBB(int x) : x{x} {}
+};
+class AAA{
+    public:
+    static void print(BBB b) {cout << b.x << endl;}
+};
+int main(int argc, char **argv) {
+    // holabaloa(BB{});
+    BBB b(666);
+    AAA::print(b);
     return 0;
 }

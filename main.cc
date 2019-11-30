@@ -182,6 +182,7 @@ class AAA{
 };
 int main(int argc, char **argv) {
     // holabaloa(BB{});
+    int deleteMe = 0;
     BBB b(666);
     AAA::print(b);
     return 0;

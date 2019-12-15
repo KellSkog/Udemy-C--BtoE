@@ -3,6 +3,8 @@
 #include <ctime>
 #include <array>
 #include <vector>
+#include "PrimalConfig.h"
+#include "test.hh"
 // #include<string>//getline
 using namespace::std;
 
@@ -171,7 +173,7 @@ void constant() {
 }
 class AAA;
 class BBB{
-    friend class AAA;
+    friend class AAA;//Now private x become available to AAA
     int x;
     public:
     BBB(int x) : x{x} {}
@@ -180,10 +182,22 @@ class AAA{
     public:
     static void print(BBB b) {cout << b.x << endl;}
 };
-int main(int argc, char **argv) {
-    // holabaloa(BB{});
-    int deleteMe = 0;
+void playWithFriends() {
     BBB b(666);
     AAA::print(b);
+}
+
+void copyConstructor() {
+    int a = 10;
+    int b = a;
+
+    a = 42;
+
+    cout << a << ", " << b << endl;
+}
+int main(int argc, char **argv) {
+    copyConstructor();
+    Test t;
+    t.diov();
     return 0;
 }

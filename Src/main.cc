@@ -188,16 +188,27 @@ void playWithFriends() {
 }
 
 void copyConstructor() {
-    int a = 10;
-    int b = a;
-
-    a = 42;
-
-    cout << a << ", " << b << endl;
-}
-int main(int argc, char **argv) {
-    copyConstructor();
     Test t;
-    t.diov();
+    float f = 3.14, g = 6.28;
+    Test t2{3, 14, &f};
+    // Test t3(t);
+    Test tt = t2;
+    *tt.p = g;
+    cout << tt.x << ", " << tt.y << endl;
+    cout << *tt.p << ", " << *t2.p << endl;
+}
+template<typename T>
+struct Thing {
+    T val;
+    Thing(T val) : val{val} {}
+    operator T(){return val;}
+    T operator +=(T t) {val = val + t; return val;}
+};
+
+int main(int argc, char **argv) {
+    Thing<int> num{42};
+    //num = 666;
+    num += Thing<int>(8);
+    cout << num.val << endl;
     return 0;
 }

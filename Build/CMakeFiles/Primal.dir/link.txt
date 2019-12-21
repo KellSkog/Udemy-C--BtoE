@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/Primal.dir/Src/main.cc.o CMakeFiles/Primal.dir/Src/test.cc.o  -o Primal 

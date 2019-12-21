@@ -1,3 +1,0 @@
-/c/Users/Kell Skog/Repositories/Udemy-C--BtoE/Build/CMakeFiles/rebuild_cache.dir
-/c/Users/Kell Skog/Repositories/Udemy-C--BtoE/Build/CMakeFiles/Primal.dir
-/c/Users/Kell Skog/Repositories/Udemy-C--BtoE/Build/CMakeFiles/edit_cache.dir

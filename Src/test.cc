@@ -1,6 +1,18 @@
-#include "test.hh"
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "catch.hpp"
+#include "doStuff.hh"
 
-Test::Test() : x{0}, y{0} {}
-Test::Test(int x, int y) : x{x}, y{y} {}
-Test::Test(int x, int y, float *p) : x{x}, y{y}, p{p} {}
-Test::Test(Test const &t) : x{t.x}, y{t.y}, p{t.p} {}
+TEST_CASE( "TEST_CASE 1" ) {
+    Thing<int> num{42};
+
+    REQUIRE( (num == 42) );
+
+    SECTION( "SECTION 1" ) {
+        num = 666;
+        REQUIRE( (num == 666) );
+    }
+    SECTION( "SECTION 2" ) {
+        num += Thing<int>(8);
+        REQUIRE( (num == 50) );
+    }
+}

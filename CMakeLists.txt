@@ -18,14 +18,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 configure_file(PrimalConfig.h.in ../Inc/PrimalConfig.h)
 
-#add_subdirectory(Src)
-
 add_executable(Primal 
-                        Src/main.cc
-                        Src/test.cc)
+                        Src/doStuff.cc
+                        Src/main.cc)
 
 target_include_directories(Primal PUBLIC
                             #"${PROJECT_BINARY_DIR}"
-                            #"#${PROJECT_SOURCE_DIR}/Build"
+                            "${PROJECT_SOURCE_DIR}/Inc"
+                           )
+project(Test)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_VERBOSE_MAKEFILE ON)
+add_executable(Test 
+                Src/Test.cc
+                Src/doStuff.cc)
+target_include_directories(Test PRIVATE
+                            "${PROJECT_SOURCE_DIR}/catch2"
                             "${PROJECT_SOURCE_DIR}/Inc"
                            )

@@ -3,6 +3,8 @@
         "iostream": "cpp",
         "array": "cpp",
         "vector": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "*.tcc": "cpp",
+        "type_traits": "cpp"
     }
 }

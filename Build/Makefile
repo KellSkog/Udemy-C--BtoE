@@ -126,6 +126,76 @@ Primal/fast:
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/build
 .PHONY : Primal/fast
 
+#=============================================================================
+# Target rules for targets named Test
+
+# Build rule for target.
+Test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test
+.PHONY : Test
+
+# fast build rule for target.
+Test/fast:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
+.PHONY : Test/fast
+
+Src/Test.o: Src/Test.cc.o
+
+.PHONY : Src/Test.o
+
+# target to build an object file
+Src/Test.cc.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/Test.cc.o
+.PHONY : Src/Test.cc.o
+
+Src/Test.i: Src/Test.cc.i
+
+.PHONY : Src/Test.i
+
+# target to preprocess a source file
+Src/Test.cc.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/Test.cc.i
+.PHONY : Src/Test.cc.i
+
+Src/Test.s: Src/Test.cc.s
+
+.PHONY : Src/Test.s
+
+# target to generate assembly for a file
+Src/Test.cc.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/Test.cc.s
+.PHONY : Src/Test.cc.s
+
+Src/doStuff.o: Src/doStuff.cc.o
+
+.PHONY : Src/doStuff.o
+
+# target to build an object file
+Src/doStuff.cc.o:
+	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.o
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.o
+.PHONY : Src/doStuff.cc.o
+
+Src/doStuff.i: Src/doStuff.cc.i
+
+.PHONY : Src/doStuff.i
+
+# target to preprocess a source file
+Src/doStuff.cc.i:
+	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.i
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.i
+.PHONY : Src/doStuff.cc.i
+
+Src/doStuff.s: Src/doStuff.cc.s
+
+.PHONY : Src/doStuff.s
+
+# target to generate assembly for a file
+Src/doStuff.cc.s:
+	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.s
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.s
+.PHONY : Src/doStuff.cc.s
+
 Src/main.o: Src/main.cc.o
 
 .PHONY : Src/main.o
@@ -153,33 +223,6 @@ Src/main.cc.s:
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/main.cc.s
 .PHONY : Src/main.cc.s
 
-Src/test.o: Src/test.cc.o
-
-.PHONY : Src/test.o
-
-# target to build an object file
-Src/test.cc.o:
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/test.cc.o
-.PHONY : Src/test.cc.o
-
-Src/test.i: Src/test.cc.i
-
-.PHONY : Src/test.i
-
-# target to preprocess a source file
-Src/test.cc.i:
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/test.cc.i
-.PHONY : Src/test.cc.i
-
-Src/test.s: Src/test.cc.s
-
-.PHONY : Src/test.s
-
-# target to generate assembly for a file
-Src/test.cc.s:
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/test.cc.s
-.PHONY : Src/test.cc.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -187,14 +230,18 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... Primal"
 	@echo "... edit_cache"
+	@echo "... Primal"
+	@echo "... Test"
+	@echo "... Src/Test.o"
+	@echo "... Src/Test.i"
+	@echo "... Src/Test.s"
+	@echo "... Src/doStuff.o"
+	@echo "... Src/doStuff.i"
+	@echo "... Src/doStuff.s"
 	@echo "... Src/main.o"
 	@echo "... Src/main.i"
 	@echo "... Src/main.s"
-	@echo "... Src/test.o"
-	@echo "... Src/test.i"
-	@echo "... Src/test.s"
 .PHONY : help
 
 

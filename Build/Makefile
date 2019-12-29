@@ -166,6 +166,36 @@ Src/Test.cc.s:
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/Test.cc.s
 .PHONY : Src/Test.cc.s
 
+Src/doOtherStuff.o: Src/doOtherStuff.cc.o
+
+.PHONY : Src/doOtherStuff.o
+
+# target to build an object file
+Src/doOtherStuff.cc.o:
+	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.o
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.o
+.PHONY : Src/doOtherStuff.cc.o
+
+Src/doOtherStuff.i: Src/doOtherStuff.cc.i
+
+.PHONY : Src/doOtherStuff.i
+
+# target to preprocess a source file
+Src/doOtherStuff.cc.i:
+	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.i
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.i
+.PHONY : Src/doOtherStuff.cc.i
+
+Src/doOtherStuff.s: Src/doOtherStuff.cc.s
+
+.PHONY : Src/doOtherStuff.s
+
+# target to generate assembly for a file
+Src/doOtherStuff.cc.s:
+	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.s
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.s
+.PHONY : Src/doOtherStuff.cc.s
+
 Src/doStuff.o: Src/doStuff.cc.o
 
 .PHONY : Src/doStuff.o
@@ -236,6 +266,9 @@ help:
 	@echo "... Src/Test.o"
 	@echo "... Src/Test.i"
 	@echo "... Src/Test.s"
+	@echo "... Src/doOtherStuff.o"
+	@echo "... Src/doOtherStuff.i"
+	@echo "... Src/doOtherStuff.s"
 	@echo "... Src/doStuff.o"
 	@echo "... Src/doStuff.i"
 	@echo "... Src/doStuff.s"

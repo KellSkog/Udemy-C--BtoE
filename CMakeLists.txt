@@ -20,6 +20,7 @@ configure_file(PrimalConfig.h.in ../Inc/PrimalConfig.h)
 
 add_executable(Primal 
                         Src/doStuff.cc
+                        Src/doOtherStuff.cc
                         Src/main.cc)
 
 target_include_directories(Primal PUBLIC
@@ -31,8 +32,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 add_executable(Test 
-                Src/Test.cc
-                Src/doStuff.cc)
+                Src/doOtherStuff.cc
+                Src/doStuff.cc
+                Src/Test.cc)
 target_include_directories(Test PRIVATE
                             "${PROJECT_SOURCE_DIR}/catch2"
                             "${PROJECT_SOURCE_DIR}/Inc"

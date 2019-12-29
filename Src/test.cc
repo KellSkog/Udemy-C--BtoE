@@ -75,3 +75,15 @@ TEST_CASE("Point") {
 
     }
 }
+TEST_CASE("Ch52") {
+    using namespace ch52;
+    SECTION("Animal") {
+
+    }
+    SECTION("Dog") {
+        Dog<std::string> rufus{"woof"};
+        bool equal = (rufus.speak() == "woof");
+        CHECK(rufus.speak() == "woof");
+        REQUIRE(rufus.speak() == "woof");
+    }
+}

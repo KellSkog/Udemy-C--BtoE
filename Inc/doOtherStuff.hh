@@ -1,5 +1,7 @@
 #ifndef DO_OTHER_STUFF_HH
 #define DO_OTHER_STUFF_HH
+#include <string>
+
 namespace other {
     template<typename T>
     class Other {
@@ -64,4 +66,22 @@ namespace chapter51 {
         T operateOn(const Point<T>&);
 
 }
+namespace ch52 {
+    template<typename T>
+    class Animal {
+        protected:
+        T voice = "kzrwt";
+
+        public:
+        Animal(T);
+        ~Animal();
+        T speak();
+    };
+    template<typename T>
+    class Dog : public Animal<T>::Animal {
+        public:
+        Dog(T);
+        ~Dog();
+    }; 
+}//namespace ch52
 #endif

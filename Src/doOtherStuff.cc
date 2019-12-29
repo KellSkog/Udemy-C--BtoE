@@ -1,5 +1,6 @@
 #include "doOtherStuff.hh"
-#include <iostream>
+#include <string>
+//#include <iostream>
 namespace other {
     template<typename T>
         Other<T>::Other(T x) : x{x} {}
@@ -58,10 +59,7 @@ namespace chapter51 {
     */
             return point.x;
         }
-    // template<typename T>
-    //     T operateOn(const Point2D<T> &point) {
-    //         return point.y;
-    //     }
+
     template class Point<int>;
     template class Point2D<int>;
     template class Point3D<int>;
@@ -72,5 +70,20 @@ namespace chapter51 {
     *  Problem was missing '&' in param type declaration
     */
     template int operateOn(const Point<int>&);
-    // template int operateOn(const Point2D<int>&);
 }
+namespace ch52 {
+    template<typename T>
+        Animal<T>::Animal(T sound) : voice{sound}{}
+    template<typename T>
+        Animal<T>::~Animal(){}
+    template<typename T>
+        T Animal<T>::speak(){return voice;}
+
+    template<typename T>
+        Dog<T>::Dog(T bark) : Animal<T>::Animal(bark) {}
+    template<typename T>
+        Dog<T>::~Dog() {}
+
+   template class Animal<std::string>;
+   template class Dog<std::string>;
+}//namespace ch52

@@ -39,3 +39,15 @@ target_include_directories(Test PRIVATE
                             "${PROJECT_SOURCE_DIR}/catch2"
                             "${PROJECT_SOURCE_DIR}/Inc"
                            )
+project(Doctest)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_VERBOSE_MAKEFILE ON)
+add_executable(Doctest 
+                Src/doOtherStuff.cc
+                Src/doStuff.cc
+                Src/doctest.cc)
+target_include_directories(Doctest PRIVATE
+                            "${PROJECT_SOURCE_DIR}/doctest"
+                            "${PROJECT_SOURCE_DIR}/Inc"
+                           )

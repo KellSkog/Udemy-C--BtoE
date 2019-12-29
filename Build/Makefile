@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Doctest
+
+# Build rule for target.
+Doctest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Doctest
+.PHONY : Doctest
+
+# fast build rule for target.
+Doctest/fast:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/build
+.PHONY : Doctest/fast
+
+#=============================================================================
 # Target rules for targets named Primal
 
 # Build rule for target.
@@ -172,6 +185,7 @@ Src/doOtherStuff.o: Src/doOtherStuff.cc.o
 
 # target to build an object file
 Src/doOtherStuff.cc.o:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doOtherStuff.cc.o
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.o
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.o
 .PHONY : Src/doOtherStuff.cc.o
@@ -182,6 +196,7 @@ Src/doOtherStuff.i: Src/doOtherStuff.cc.i
 
 # target to preprocess a source file
 Src/doOtherStuff.cc.i:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doOtherStuff.cc.i
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.i
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.i
 .PHONY : Src/doOtherStuff.cc.i
@@ -192,6 +207,7 @@ Src/doOtherStuff.s: Src/doOtherStuff.cc.s
 
 # target to generate assembly for a file
 Src/doOtherStuff.cc.s:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doOtherStuff.cc.s
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.s
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.s
 .PHONY : Src/doOtherStuff.cc.s
@@ -202,6 +218,7 @@ Src/doStuff.o: Src/doStuff.cc.o
 
 # target to build an object file
 Src/doStuff.cc.o:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doStuff.cc.o
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.o
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.o
 .PHONY : Src/doStuff.cc.o
@@ -212,6 +229,7 @@ Src/doStuff.i: Src/doStuff.cc.i
 
 # target to preprocess a source file
 Src/doStuff.cc.i:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doStuff.cc.i
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.i
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.i
 .PHONY : Src/doStuff.cc.i
@@ -222,9 +240,37 @@ Src/doStuff.s: Src/doStuff.cc.s
 
 # target to generate assembly for a file
 Src/doStuff.cc.s:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doStuff.cc.s
 	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.s
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.s
 .PHONY : Src/doStuff.cc.s
+
+Src/doctest.o: Src/doctest.cc.o
+
+.PHONY : Src/doctest.o
+
+# target to build an object file
+Src/doctest.cc.o:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doctest.cc.o
+.PHONY : Src/doctest.cc.o
+
+Src/doctest.i: Src/doctest.cc.i
+
+.PHONY : Src/doctest.i
+
+# target to preprocess a source file
+Src/doctest.cc.i:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doctest.cc.i
+.PHONY : Src/doctest.cc.i
+
+Src/doctest.s: Src/doctest.cc.s
+
+.PHONY : Src/doctest.s
+
+# target to generate assembly for a file
+Src/doctest.cc.s:
+	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doctest.cc.s
+.PHONY : Src/doctest.cc.s
 
 Src/main.o: Src/main.cc.o
 
@@ -261,6 +307,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Doctest"
 	@echo "... Primal"
 	@echo "... Test"
 	@echo "... Src/Test.o"
@@ -272,6 +319,9 @@ help:
 	@echo "... Src/doStuff.o"
 	@echo "... Src/doStuff.i"
 	@echo "... Src/doStuff.s"
+	@echo "... Src/doctest.o"
+	@echo "... Src/doctest.i"
+	@echo "... Src/doctest.s"
 	@echo "... Src/main.o"
 	@echo "... Src/main.i"
 	@echo "... Src/main.s"

@@ -59,17 +59,6 @@ CMAKE_BINARY_DIR = "/c/Users/Kell Skog/Repositories/Udemy-C--BtoE/Build"
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -80,6 +69,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -114,70 +114,70 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Doctest
+# Target rules for targets named doctest
 
 # Build rule for target.
-Doctest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Doctest
-.PHONY : Doctest
+doctest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doctest
+.PHONY : doctest
 
 # fast build rule for target.
-Doctest/fast:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/build
-.PHONY : Doctest/fast
+doctest/fast:
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/build
+.PHONY : doctest/fast
 
 #=============================================================================
-# Target rules for targets named Primal
+# Target rules for targets named main
 
 # Build rule for target.
-Primal: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Primal
-.PHONY : Primal
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-Primal/fast:
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/build
-.PHONY : Primal/fast
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named Test
+# Target rules for targets named catch
 
 # Build rule for target.
-Test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Test
-.PHONY : Test
+catch: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 catch
+.PHONY : catch
 
 # fast build rule for target.
-Test/fast:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
-.PHONY : Test/fast
+catch/fast:
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/build
+.PHONY : catch/fast
 
-Src/Test.o: Src/Test.cc.o
+Src/catchtest.o: Src/catchtest.cc.o
 
-.PHONY : Src/Test.o
+.PHONY : Src/catchtest.o
 
 # target to build an object file
-Src/Test.cc.o:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/Test.cc.o
-.PHONY : Src/Test.cc.o
+Src/catchtest.cc.o:
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/catchtest.cc.o
+.PHONY : Src/catchtest.cc.o
 
-Src/Test.i: Src/Test.cc.i
+Src/catchtest.i: Src/catchtest.cc.i
 
-.PHONY : Src/Test.i
+.PHONY : Src/catchtest.i
 
 # target to preprocess a source file
-Src/Test.cc.i:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/Test.cc.i
-.PHONY : Src/Test.cc.i
+Src/catchtest.cc.i:
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/catchtest.cc.i
+.PHONY : Src/catchtest.cc.i
 
-Src/Test.s: Src/Test.cc.s
+Src/catchtest.s: Src/catchtest.cc.s
 
-.PHONY : Src/Test.s
+.PHONY : Src/catchtest.s
 
 # target to generate assembly for a file
-Src/Test.cc.s:
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/Test.cc.s
-.PHONY : Src/Test.cc.s
+Src/catchtest.cc.s:
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/catchtest.cc.s
+.PHONY : Src/catchtest.cc.s
 
 Src/doOtherStuff.o: Src/doOtherStuff.cc.o
 
@@ -185,9 +185,9 @@ Src/doOtherStuff.o: Src/doOtherStuff.cc.o
 
 # target to build an object file
 Src/doOtherStuff.cc.o:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doOtherStuff.cc.o
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.o
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.o
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doOtherStuff.cc.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/doOtherStuff.cc.o
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/doOtherStuff.cc.o
 .PHONY : Src/doOtherStuff.cc.o
 
 Src/doOtherStuff.i: Src/doOtherStuff.cc.i
@@ -196,9 +196,9 @@ Src/doOtherStuff.i: Src/doOtherStuff.cc.i
 
 # target to preprocess a source file
 Src/doOtherStuff.cc.i:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doOtherStuff.cc.i
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.i
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.i
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doOtherStuff.cc.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/doOtherStuff.cc.i
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/doOtherStuff.cc.i
 .PHONY : Src/doOtherStuff.cc.i
 
 Src/doOtherStuff.s: Src/doOtherStuff.cc.s
@@ -207,9 +207,9 @@ Src/doOtherStuff.s: Src/doOtherStuff.cc.s
 
 # target to generate assembly for a file
 Src/doOtherStuff.cc.s:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doOtherStuff.cc.s
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doOtherStuff.cc.s
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doOtherStuff.cc.s
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doOtherStuff.cc.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/doOtherStuff.cc.s
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/doOtherStuff.cc.s
 .PHONY : Src/doOtherStuff.cc.s
 
 Src/doStuff.o: Src/doStuff.cc.o
@@ -218,9 +218,9 @@ Src/doStuff.o: Src/doStuff.cc.o
 
 # target to build an object file
 Src/doStuff.cc.o:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doStuff.cc.o
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.o
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.o
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doStuff.cc.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/doStuff.cc.o
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/doStuff.cc.o
 .PHONY : Src/doStuff.cc.o
 
 Src/doStuff.i: Src/doStuff.cc.i
@@ -229,9 +229,9 @@ Src/doStuff.i: Src/doStuff.cc.i
 
 # target to preprocess a source file
 Src/doStuff.cc.i:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doStuff.cc.i
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.i
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.i
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doStuff.cc.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/doStuff.cc.i
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/doStuff.cc.i
 .PHONY : Src/doStuff.cc.i
 
 Src/doStuff.s: Src/doStuff.cc.s
@@ -240,9 +240,9 @@ Src/doStuff.s: Src/doStuff.cc.s
 
 # target to generate assembly for a file
 Src/doStuff.cc.s:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doStuff.cc.s
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/doStuff.cc.s
-	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Src/doStuff.cc.s
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doStuff.cc.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/doStuff.cc.s
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/Src/doStuff.cc.s
 .PHONY : Src/doStuff.cc.s
 
 Src/doctest.o: Src/doctest.cc.o
@@ -251,7 +251,7 @@ Src/doctest.o: Src/doctest.cc.o
 
 # target to build an object file
 Src/doctest.cc.o:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doctest.cc.o
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doctest.cc.o
 .PHONY : Src/doctest.cc.o
 
 Src/doctest.i: Src/doctest.cc.i
@@ -260,7 +260,7 @@ Src/doctest.i: Src/doctest.cc.i
 
 # target to preprocess a source file
 Src/doctest.cc.i:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doctest.cc.i
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doctest.cc.i
 .PHONY : Src/doctest.cc.i
 
 Src/doctest.s: Src/doctest.cc.s
@@ -269,7 +269,7 @@ Src/doctest.s: Src/doctest.cc.s
 
 # target to generate assembly for a file
 Src/doctest.cc.s:
-	$(MAKE) -f CMakeFiles/Doctest.dir/build.make CMakeFiles/Doctest.dir/Src/doctest.cc.s
+	$(MAKE) -f CMakeFiles/doctest.dir/build.make CMakeFiles/doctest.dir/Src/doctest.cc.s
 .PHONY : Src/doctest.cc.s
 
 Src/main.o: Src/main.cc.o
@@ -278,7 +278,7 @@ Src/main.o: Src/main.cc.o
 
 # target to build an object file
 Src/main.cc.o:
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/main.cc.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/main.cc.o
 .PHONY : Src/main.cc.o
 
 Src/main.i: Src/main.cc.i
@@ -287,7 +287,7 @@ Src/main.i: Src/main.cc.i
 
 # target to preprocess a source file
 Src/main.cc.i:
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/main.cc.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/main.cc.i
 .PHONY : Src/main.cc.i
 
 Src/main.s: Src/main.cc.s
@@ -296,7 +296,7 @@ Src/main.s: Src/main.cc.s
 
 # target to generate assembly for a file
 Src/main.cc.s:
-	$(MAKE) -f CMakeFiles/Primal.dir/build.make CMakeFiles/Primal.dir/Src/main.cc.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Src/main.cc.s
 .PHONY : Src/main.cc.s
 
 # Help Target
@@ -305,14 +305,14 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
+	@echo "... doctest"
 	@echo "... edit_cache"
-	@echo "... Doctest"
-	@echo "... Primal"
-	@echo "... Test"
-	@echo "... Src/Test.o"
-	@echo "... Src/Test.i"
-	@echo "... Src/Test.s"
+	@echo "... main"
+	@echo "... rebuild_cache"
+	@echo "... catch"
+	@echo "... Src/catchtest.o"
+	@echo "... Src/catchtest.i"
+	@echo "... Src/catchtest.s"
 	@echo "... Src/doOtherStuff.o"
 	@echo "... Src/doOtherStuff.i"
 	@echo "... Src/doOtherStuff.s"

@@ -86,4 +86,12 @@ TEST_CASE("Ch52") {
         CHECK(rufus.speak() == "woof");
         REQUIRE(rufus.speak() == "woof");
     }
+    SECTION("Cat") {
+        Dog<std::string> nefertite{"mjau"};
+        REQUIRE(nefertite.speak() == "mjau");
+    }
+    SECTION("Dog") {
+        Cow<std::string> rosa{"muuu"};
+        REQUIRE(rosa.speak() == "muuu");
+    }
 }

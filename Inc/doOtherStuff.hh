@@ -71,17 +71,31 @@ namespace ch52 {
     class Animal {
         protected:
         T voice = "kzrwt";
+        T sign;
 
         public:
         Animal(T);
-        ~Animal();
+        virtual ~Animal();
         T speak();
+        T getSign();
     };
     template<typename T>
     class Dog : public Animal<T>::Animal {
         public:
         Dog(T);
-        ~Dog();
-    }; 
+        ~Dog() override;
+    };
+    template<typename T>
+    class Cat : public Animal<T>::Animal {
+        public:
+        Cat(T);
+        ~Cat() override;
+    };
+    template<typename T>
+    class Cow : public Animal<T>::Animal {
+        public:
+        Cow(T);
+        ~Cow() override;
+    };
 }//namespace ch52
 #endif

@@ -78,12 +78,29 @@ namespace ch52 {
         Animal<T>::~Animal(){}
     template<typename T>
         T Animal<T>::speak(){return voice;}
+    template<typename T>
+        T Animal<T>::getSign() {return Animal<T>::sign;}
 
     template<typename T>
-        Dog<T>::Dog(T bark) : Animal<T>::Animal(bark) {}
+        Dog<T>::Dog(T bark) : Animal<T>::Animal(bark) {
+            Animal<T>::sign = "D";
+        }
     template<typename T>
         Dog<T>::~Dog() {}
+    template<typename T>
+        Cat<T>::Cat(T bark) : Animal<T>::Animal(bark) {
+            Animal<T>::sign = "C";
+        }
+    template<typename T>
+        Cat<T>::~Cat() {}
+
+    template<typename T>
+        Cow<T>::Cow(T bark) : Animal<T>::Animal(bark) {}
+    template<typename T>
+        Cow<T>::~Cow() {}
 
    template class Animal<std::string>;
    template class Dog<std::string>;
+   template class Cat<std::string>;
+   template class Cow<std::string>;
 }//namespace ch52

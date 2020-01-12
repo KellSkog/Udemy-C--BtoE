@@ -10,3 +10,12 @@ TEST_CASE("Hello") {
         REQUIRE(rufus.speak() == "woof");
     }
 }
+TEST_CASE("Sign") {
+    ch52::Dog<std::string> rufus{"woof"};
+    ch52::Animal<std::string> &raffels = rufus;
+
+    SUBCASE("World") {
+        REQUIRE(rufus.getSign() == "D");
+        REQUIRE(raffels.getSign() == "D");
+    }
+}

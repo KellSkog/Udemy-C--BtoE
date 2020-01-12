@@ -11,43 +11,43 @@ cmake_minimum_required(VERSION 3.10)
     loading one through the include() command is not sufficient.
     Call the project() command near the top of the top-level CMakeLists.txt, 
     but after calling cmake_minimum_required().]]
-project(Primal VERSION 1.0)
+project(main VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 configure_file(PrimalConfig.h.in ../Inc/PrimalConfig.h)
 
-add_executable(Primal 
+add_executable(main 
                         Src/doStuff.cc
                         Src/doOtherStuff.cc
                         Src/main.cc)
 
-target_include_directories(Primal PUBLIC
+target_include_directories(main PUBLIC
                             #"${PROJECT_BINARY_DIR}"
                             "${PROJECT_SOURCE_DIR}/Inc"
                            )
-project(Test)
+project(catch)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_VERBOSE_MAKEFILE ON)
-add_executable(Test 
+add_executable(catch 
                 Src/doOtherStuff.cc
                 Src/doStuff.cc
-                Src/Test.cc)
-target_include_directories(Test PRIVATE
+                Src/catchtest.cc)
+target_include_directories(catch PRIVATE
                             "${PROJECT_SOURCE_DIR}/catch2"
                             "${PROJECT_SOURCE_DIR}/Inc"
                            )
-project(Doctest)
+project(doctest)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_VERBOSE_MAKEFILE ON)
-add_executable(Doctest 
+add_executable(doctest 
                 Src/doOtherStuff.cc
                 Src/doStuff.cc
                 Src/doctest.cc)
-target_include_directories(Doctest PRIVATE
+target_include_directories(doctest PRIVATE
                             "${PROJECT_SOURCE_DIR}/doctest"
                             "${PROJECT_SOURCE_DIR}/Inc"
                            )
